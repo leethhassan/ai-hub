@@ -16,7 +16,7 @@ const modeMap = {
 };
 
 export async function POST(req: NextRequest) {
-  const supabase = createClient();
+  const supabase = createClient(req);
   const {
     data: { user }
   } = await supabase.auth.getUser();

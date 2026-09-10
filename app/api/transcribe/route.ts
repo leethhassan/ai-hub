@@ -6,7 +6,7 @@ import { getAIProvider } from "@/lib/ai";
 const MAX_SIZE = 20 * 1024 * 1024; // 20MB
 
 export async function POST(req: NextRequest) {
-  const supabase = createClient();
+  const supabase = createClient(req);
   const {
     data: { user }
   } = await supabase.auth.getUser();

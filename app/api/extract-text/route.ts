@@ -6,7 +6,7 @@ export const runtime = "nodejs";
 const MAX_SIZE = 5 * 1024 * 1024; // 5MB
 
 export async function POST(req: NextRequest) {
-  const supabase = createClient();
+  const supabase = createClient(req);
   const {
     data: { user }
   } = await supabase.auth.getUser();
