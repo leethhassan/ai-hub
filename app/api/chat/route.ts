@@ -12,7 +12,8 @@ const bodySchema = z.object({
 });
 
 export async function POST(req: NextRequest) {
-  const supabase = createClient();
+  // تمرير الـ req هنا لضمان قراءة الكوكيز بشكل صحيح على Netlify
+  const supabase = createClient(req);
   const {
     data: { user }
   } = await supabase.auth.getUser();
@@ -117,3 +118,4 @@ export async function POST(req: NextRequest) {
     headers: { "Content-Type": "text/plain; charset=utf-8" }
   });
 }
+
